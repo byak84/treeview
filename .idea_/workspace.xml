@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5dfd868c-8777-4b3e-b4f4-93813e5bb186" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/category.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/newsitem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/textview.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/treeview.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1h7cE6c7PRa60WFmczPHurPnkvx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5dfd868c-8777-4b3e-b4f4-93813e5bb186" name="Default Changelist" comment="" />
+      <created>1599365456741</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599365456741</updated>
+      <workItem from="1599365457765" duration="12000" />
+      <workItem from="1599401774334" duration="374000" />
+      <workItem from="1599402158932" duration="2358000" />
+      <workItem from="1599443827535" duration="10424000" />
+      <workItem from="1599674697229" duration="3000" />
+      <workItem from="1599757743690" duration="347000" />
+      <workItem from="1599900213247" duration="217000" />
+      <workItem from="1599900437746" duration="128000" />
+      <workItem from="1599901420900" duration="162000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="410" y="165" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599900496400">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="410" y="165" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599900496400" />
+    <state x="687" y="197" key="FileChooserDialogImpl" timestamp="1599900462780">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="687" y="197" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599900462780" />
+    <state x="687" y="172" key="RollbackChangesDialog" timestamp="1599900469609">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="687" y="172" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599900469609" />
+    <state x="296" y="0" width="1141" height="728" key="SettingsEditor" timestamp="1599901581935">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-7" y="0" width="1141" height="728" key="SettingsEditor/0.0.1612.728@0.0.1612.728" timestamp="1599758011100" />
+    <state x="296" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599901581935" />
+    <state x="656" y="77" key="SettingsEditor/0.0.2560.1040/-1920.0.1920.1080@0.0.2560.1040" timestamp="1599507803814" />
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2" timestamp="1599901494564">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599901494564" />
+    <state x="532" y="237" key="run.anything.popup" timestamp="1599901501409">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="532" y="237" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599901501409" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1599901524417">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599901524417" />
+  </component>
+</project>
