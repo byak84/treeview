@@ -1,23 +1,23 @@
 <template>
   <div id="app" class="app">
-    <header></header>
-<!--    <treeview v-bind:tree="this['myTree']"-->
-<!--              v-on:itemclick="itemclick"-->
-<!--    />-->
-<!--    <textview v-bind:text="this['text']"-->
-<!--    />-->
+    <tophead />
+    <treeview v-bind:tree="this['myTree']"
+              v-on:itemclick="itemclick"
+    />
+    <textview v-bind:text="this['text']"
+    />
   </div>
 </template>
 
 <script>
 import Treeview from "@/components/treeview"
 import Textview from "@/components/textview"
-import Header from "@/components/header"
+import Tophead from "@/components/tophead"
 
 export default {
   name: 'App',
   components: {
-    Treeview, Textview, Header
+    Treeview, Textview, Tophead,
   },
 
   data: () => {

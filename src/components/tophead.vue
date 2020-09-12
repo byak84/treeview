@@ -9,12 +9,14 @@ export default {}
 </script>
 
 
-<style>
+<style scoped>
 
 .header {
   width: 100%;
   background-color: cornflowerblue;
   float: top;
+  margin: 0;
+  padding: 0;
 }
 
 </style>
