@@ -5,8 +5,8 @@
       <a href="#close" title="Закрыть" class="close">X</a>
       <h2>Добавление новости</h2>
       <form @submit.prevent="onSubmit">
-        <input type="text" autofocus /><br>
-        <input type="text" /><br><hr>
+        <label for="category">Категория</label><input type="text" name="category" id="category" autofocus /><br>
+        <label for="link">Ссылка</label><input type="text" name="link" id="link" /><br><hr>
         <div>
           <input type="submit" value="Добавить"/>
         </div>
