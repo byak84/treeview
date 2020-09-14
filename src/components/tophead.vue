@@ -20,7 +20,6 @@ export default {
 .header {
   width: 100%;
   background-color: cornflowerblue;
-  /*float: n*/
   margin: 0;
   padding: 0;
 }
