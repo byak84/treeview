@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="app">
-    <tophead />
+    <tophead v-on:showmodal="showmodal" />
     <treeview v-bind:tree="this['myTree']"
               v-on:itemclick="itemclick"
     />
-    <textview v-bind:text="this['text']"
-    />
+    <textview v-bind:text="this['text']" />
+    <addform v-bind:show="this.modal" />
   </div>
 </template>
 
@@ -13,11 +13,12 @@
 import Treeview from "@/components/treeview"
 import Textview from "@/components/textview"
 import Tophead from "@/components/tophead"
+import Addform from "@/components/addform"
 
 export default {
   name: 'App',
   components: {
-    Treeview, Textview, Tophead,
+    Treeview, Textview, Tophead, Addform,
   },
 
   data: () => {
@@ -25,6 +26,7 @@ export default {
       myTree: {},
       text: "",
       apiURL: "http://192.168.2.65:5000/",
+      modal: false,
     });
   },
   methods: {
@@ -39,7 +41,11 @@ export default {
           .catch(err => {
             alert(err);
           })
-    }
+    },
+    showmodal: function () {
+      //console.log(this.modal);
+      this.modal = !this.modal;
+    },
   },
   mounted() {
     fetch(this.apiURL)

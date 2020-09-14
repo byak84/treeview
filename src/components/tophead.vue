@@ -1,11 +1,17 @@
 <template>
   <div class="header">
-    <h1>Header</h1>
+    <input type="button" value="Добавить" v-on:click="$emit('showmodal')" />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    add: function () {
+
+    }
+  }
+}
 </script>
 
 
@@ -14,7 +20,7 @@ export default {}
 .header {
   width: 100%;
   background-color: cornflowerblue;
-  float: top;
+  /*float: n*/
   margin: 0;
   padding: 0;
 }
