@@ -1,36 +1,39 @@
 <template>
   <div id="app" class="app">
-    <tophead v-on:showmodal="showmodal" />
+    <action v-on:add_news="add_news"
+    />
+
     <treeview v-bind:tree="this['myTree']"
               v-on:itemclick="itemclick"
     />
-    <textview v-bind:text="this['text']" />
-    <addform v-bind:show="this.modal" />
+
+    <textview v-bind:text="this['text']"/>
   </div>
 </template>
 
 <script>
 import Treeview from "@/components/treeview"
 import Textview from "@/components/textview"
-import Tophead from "@/components/tophead"
-import Addform from "@/components/addform"
+import Action from "@/components/action"
 
 export default {
   name: 'App',
   components: {
-    Treeview, Textview, Tophead, Addform,
+    Treeview, Textview, Action,
   },
 
   data: () => {
     return ({
+      apiURL: "http://192.168.2.65:5000/",
       myTree: {},
       text: "",
-      apiURL: "http://192.168.2.65:5000/",
-      modal: false,
+      currentCategory: "",
     });
   },
   methods: {
     itemclick: function (path) {
+      this.currentCategory = path.split("/", 1).toString();
+      console.log(this.currentCategory);
       fetch(this.apiURL + path)
           .then(response => {
             response.json()
@@ -42,10 +45,20 @@ export default {
             alert(err);
           })
     },
-    showmodal: function () {
-      //console.log(this.modal);
-      this.modal = !this.modal;
+    add_news: function (link) {
+      console.log(link);
+      let post_options = {
+        link: link
+      }
+      fetch(this.apiURL + "add/" + this.currentCategory, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post_options)
+      })
     },
+
   },
   mounted() {
     fetch(this.apiURL)
@@ -66,12 +79,13 @@ export default {
 
 <style>
 html, body {
-  height: 90%;
+  height: 99%;
   padding: 0;
 }
 
 .app {
-  height: 100%;
+  height: 99%;
+  background: black;
 }
 
 </style>
