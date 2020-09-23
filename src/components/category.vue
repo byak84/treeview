@@ -11,6 +11,8 @@
           v-bind:key="news.id"
           v-bind:category="title"
           v-on:itemclick="itemclick"
+          v-on:dragStart="dragStart"
+          v-on:dragDrop="dragDrop"
       />
 
     </ul>
@@ -26,12 +28,40 @@ export default {
 
   data: () => {
     return ({
-      nes: true
+      nes: true,
+      startItem: null
     })
   },
   methods: {
     itemclick: function (path) {
       this.$emit("itemclick", path);
+    },
+    dragStart: function (contex) {
+      console.log("start: ", contex);
+      this.startItem = contex;
+    },
+    dragDrop: function (contex) {
+      console.log("Drop: ", contex);
+      if (this.startItem != null) {
+        const tmpD = Object.assign({}, contex.$props.news);
+        const tmpS = Object.assign({}, this.startItem.$props.news);
+
+        this.startItem.$props.news.id = "";
+
+
+        contex.$props.news.id=tmpS.id;
+        contex.$props.news.name = tmpS.name;
+        contex.$props.news.order = tmpS.order;
+        contex.$props.news.text = tmpS.text;
+
+        this.startItem.$props.news.id = tmpD.id;
+        this.startItem.$props.news.name = tmpD.name;
+        this.startItem.$props.news.order = tmpD.order;
+        this.startItem.$props.news.text = tmpD.text;
+
+        // b = [a, a = b][0];
+
+      }
     }
   }
 }

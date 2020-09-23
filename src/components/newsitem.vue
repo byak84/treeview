@@ -25,7 +25,8 @@ export default {
       this.$emit('itemclick', path);
     },
     dragStart:function (evn) {
-      console.log(this.news);
+      //console.log(this.news);
+      this.$emit("dragStart", this)
     },
     dragOver: function (evn) {
       evn.preventDefault();
@@ -37,8 +38,9 @@ export default {
       this.isOvered = false;
     },
     dragDrop: function (evt) {
-      console.log(this.news);
+      //console.log(this.news);
       this.isOvered = false;
+      this.$emit("dragDrop", this)
     }
 
 
