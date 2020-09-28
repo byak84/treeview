@@ -24,7 +24,7 @@ export default {
 
   data: () => {
     return ({
-      apiURL: "http://192.168.2.65:5000/",
+      apiURL: "http://192.168.2.65:5000",
       myTree: {},
       text: "",
       currentCategory: "",
@@ -32,8 +32,8 @@ export default {
   },
   methods: {
     itemclick: function (path) {
-      this.currentCategory = path.split("/", 1).toString();
-      console.log(this.currentCategory);
+      this.currentCategory = path.substr(1).split("/", 1).toString();
+      // console.log(this.currentCategory);
       fetch(this.apiURL + path)
           .then(response => {
             response.json()
@@ -50,7 +50,7 @@ export default {
       let post_options = {
         link: link
       }
-      fetch(this.apiURL + "add/" + this.currentCategory, {
+      fetch(this.apiURL + "/add/" + this.currentCategory, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -84,13 +84,13 @@ export default {
 
 <style>
 html, body {
-  height: 99%;
+  height: 98%;
   padding: 0;
 }
 
 .app {
-  height: 99%;
-  background: black;
+  height: 98%;
+  /*background: cornflowerblue;*/
 }
 
 </style>

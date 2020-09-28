@@ -31,7 +31,7 @@ export default {
   padding: 0px;
   width: 30%;
   height: 100%;
-  background-color: aquamarine;
+  /*background-color: #7fffd4;*/
   float: left;
 }
 

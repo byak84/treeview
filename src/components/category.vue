@@ -4,7 +4,6 @@
         v-bind:class="{caretdown: !nes}">{{ title }}
     </li>
     <ul v-bind:class="{nested: nes}">
-
       <newsitem
           v-for="news of newsArray"
           v-bind:news="news"
@@ -14,7 +13,6 @@
           v-on:dragStart="dragStart"
           v-on:dragDrop="dragDrop"
       />
-
     </ul>
   </div>
 </template>
@@ -49,7 +47,7 @@ export default {
         this.startItem.$props.news.id = "";
 
 
-        contex.$props.news.id=tmpS.id;
+        contex.$props.news.id = tmpS.id;
         contex.$props.news.name = tmpS.name;
         contex.$props.news.order = tmpS.order;
         contex.$props.news.text = tmpS.text;

@@ -31,9 +31,9 @@ export default {
 
 .header {
   width: 100%;
-  background-color: cornflowerblue;
-  margin: 0;
-  padding: 0;
+  /*background-color: cornflowerblue;*/
+  margin: 0px;
+  padding: 0px;
 }
 
 .editlink {
