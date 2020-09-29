@@ -32,8 +32,9 @@ export default {
   },
   methods: {
     itemclick: function (path) {
+      console.log(path);
       this.currentCategory = path.substr(1).split("/", 1).toString();
-      // console.log(this.currentCategory);
+
       fetch(this.apiURL + path)
           .then(response => {
             response.json()

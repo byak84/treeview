@@ -30,9 +30,9 @@ export default {
 <style scoped>
 
 .header {
-  width: 100%;
-  /*background-color: cornflowerblue;*/
-  margin: 0px;
+  /*width: 100%;*/
+  background-color: cornflowerblue;
+  margin: 10px;
   padding: 0px;
 }
 

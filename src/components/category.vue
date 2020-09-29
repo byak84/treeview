@@ -7,7 +7,7 @@
       <newsitem
           v-for="news of newsArray"
           v-bind:news="news"
-          v-bind:key="news.id"
+          v-bind:key="news.uuid"
           v-bind:category="title"
           v-on:itemclick="itemclick"
           v-on:dragStart="dragStart"
@@ -26,7 +26,7 @@ export default {
 
   data: () => {
     return ({
-      nes: true,
+      nes: false,
       startItem: null
     })
   },
@@ -44,20 +44,18 @@ export default {
         const tmpD = Object.assign({}, contex.$props.news);
         const tmpS = Object.assign({}, this.startItem.$props.news);
 
-        this.startItem.$props.news.id = "";
+        this.startItem.$props.news.uuid = "";
 
 
-        contex.$props.news.id = tmpS.id;
+        contex.$props.news.uuid = tmpS.uuid;
         contex.$props.news.name = tmpS.name;
         contex.$props.news.order = tmpS.order;
         contex.$props.news.text = tmpS.text;
 
-        this.startItem.$props.news.id = tmpD.id;
+        this.startItem.$props.news.uuid = tmpD.uuid;
         this.startItem.$props.news.name = tmpD.name;
         this.startItem.$props.news.order = tmpD.order;
         this.startItem.$props.news.text = tmpD.text;
-
-        // b = [a, a = b][0];
 
       }
     }

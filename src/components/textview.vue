@@ -27,6 +27,7 @@ export default {
 textarea {
   width: 100%;
   height: 100%;
+  font-family: Verdana, Tahoma, Arial;
 }
 
 </style>

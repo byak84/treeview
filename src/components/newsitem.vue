@@ -5,16 +5,12 @@
        v-on:dragenter="dragEnter"
        v-on:dragleave="dragLeave"
        v-on:drop="dragDrop"
-       v-bind:class="{overed: isOvered, leaved: !isOvered}"
+       v-bind:class="{overed: isOvered, leaved: !isOvered, selected: isSelected}"
        v-bind:data-category="category"
-       v-bind:data-id="news.id"
-
+       v-bind:data-uuid="news.uuid"
   >
 
-    <li class="item"
-
-
-    >{{ news.name }}</li>
+    <li class="item">{{ news.name }}</li>
 
 
   </div>
@@ -26,16 +22,15 @@ export default {
   data: () => {
     return {
       isOvered: false,
+      isSelected: false,
       counter: 0,
     }
   },
   methods: {
     itemclick: function (event) {
-      // console.log(this);
-      // const path = "/" + event.target.dataset.category + "/" + event.target.dataset.id;
-      const path = "/" + this.$props.category + "/" + this.$props.news.id;
-     // console.log(path);
-     this.$emit('itemclick', path);
+      // this.isSelected = true;
+      const path = "/" + this.$props.category + "/" + this.$props.news.uuid;
+      this.$emit('itemclick', path);
     },
     dragStart: function (evn) {
       this.$emit("dragStart", this)
@@ -70,7 +65,6 @@ export default {
 <style>
 
 .item {
-
   color: blue;
   user-select: none;
 }
@@ -82,12 +76,11 @@ export default {
 
 .overed {
   background-color: deeppink;
-
 }
-
 .leaved {
   background-color: white;
 }
+
 .row {
   cursor: pointer;
   width: 85%;
@@ -97,5 +90,11 @@ export default {
   margin: 5px;
   padding: 5px;
 }
+
+.selected {
+background-color: aqua;
+}
+
+
 
 </style>
