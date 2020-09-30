@@ -51,13 +51,24 @@ export default {
       this.startItem = contex;
     },
     dragDrop: function (contex) {
+      let dropIndex;
+      let startIndex;
       if (this.startItem != null) {
 
-        console.log(contex);
-        // this.$children[0].$destroy();
-        // this.$forceUpdate();
+        let items = this.$children;
+        for (let i = 0; i < items.length; i++) {
+          if (items[i] === contex) {
+            console.log(i);
+            dropIndex = i;
+          }
+          if (items[i] === this.startItem) {
+            console.log(i);
+            startIndex = i;
+          }
+        }
 
-        console.log(this.$children[0]);
+       items[dropIndex].$props.news.name = items[startIndex].$props.news.name;
+
 
         // const tmpD = Object.assign({}, contex.$props.news);
         // const tmpS = Object.assign({}, this.startItem.$props.news);
@@ -70,7 +81,6 @@ export default {
         // this.startItem.$props.news.name = tmpD.name;
         // this.startItem.$props.news.order = tmpD.order;
         // this.startItem.$props.news.text = tmpD.text;
-
 
       }
     }
