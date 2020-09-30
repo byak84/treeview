@@ -31,31 +31,46 @@ export default {
     })
   },
   methods: {
-    itemclick: function (path) {
-      this.$emit("itemclick", path);
+    unselectAll: function (contex) {
+      // console.log(this);
+      let children = this.$children;
+      children.forEach(function (item, i, children) {
+        if (item != contex) {
+          item.isSelected = false;
+        }
+      })
+    },
+    itemclick: function (path, contex) {
+      this.$emit("itemclick", path, contex);
+      let children = this.$children;
+      children.forEach(function (item, i, children) {
+        console.log(item.$props.news.uuid);
+      })
     },
     dragStart: function (contex) {
-      console.log("start: ", contex);
       this.startItem = contex;
     },
     dragDrop: function (contex) {
-      console.log("Drop: ", contex);
       if (this.startItem != null) {
-        const tmpD = Object.assign({}, contex.$props.news);
-        const tmpS = Object.assign({}, this.startItem.$props.news);
 
-        this.startItem.$props.news.uuid = "";
+        console.log(contex);
+        // this.$children[0].$destroy();
+        // this.$forceUpdate();
 
+        console.log(this.$children[0]);
 
-        contex.$props.news.uuid = tmpS.uuid;
-        contex.$props.news.name = tmpS.name;
-        contex.$props.news.order = tmpS.order;
-        contex.$props.news.text = tmpS.text;
+        // const tmpD = Object.assign({}, contex.$props.news);
+        // const tmpS = Object.assign({}, this.startItem.$props.news);
+        // this.startItem.$props.news.uuid = "";
+        // contex.$props.news.uuid = tmpS.uuid;
+        // contex.$props.news.name = tmpS.name;
+        // contex.$props.news.order = tmpS.order;
+        // contex.$props.news.text = tmpS.text;
+        // this.startItem.$props.news.uuid = tmpD.uuid;
+        // this.startItem.$props.news.name = tmpD.name;
+        // this.startItem.$props.news.order = tmpD.order;
+        // this.startItem.$props.news.text = tmpD.text;
 
-        this.startItem.$props.news.uuid = tmpD.uuid;
-        this.startItem.$props.news.name = tmpD.name;
-        this.startItem.$props.news.order = tmpD.order;
-        this.startItem.$props.news.text = tmpD.text;
 
       }
     }

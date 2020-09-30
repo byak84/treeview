@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     itemclick: function (path) {
-      console.log(path);
+      // console.log(path);
       this.currentCategory = path.substr(1).split("/", 1).toString();
 
       fetch(this.apiURL + path)
@@ -51,7 +51,7 @@ export default {
       let post_options = {
         link: link
       }
-      fetch(this.apiURL + "/add/" + this.currentCategory, {
+      fetch(this.apiURL + "/add/" + this.currentCategory + "/", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -59,9 +59,9 @@ export default {
         },
         body: JSON.stringify(post_options)
       }).then(res => {
-        console.log(res)
+        // console.log(res)
       }).catch(err => {
-        console.log(err)
+        // console.log(err)
       })
     },
 

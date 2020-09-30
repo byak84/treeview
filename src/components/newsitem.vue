@@ -5,13 +5,13 @@
        v-on:dragenter="dragEnter"
        v-on:dragleave="dragLeave"
        v-on:drop="dragDrop"
-       v-bind:class="{overed: isOvered, leaved: !isOvered, selected: isSelected}"
-       v-bind:data-category="category"
-       v-bind:data-uuid="news.uuid"
+       v-bind:class="{overed: isOvered, leaved: !isOvered}"
+
   >
 
-    <li class="item">{{ news.name }}</li>
-
+    <li v-bind:class="{item: !isSelected, itemS: isSelected}">{{ news.name }}</li>
+<!--    v-bind:data-category="category"-->
+<!--    v-bind:data-uuid="news.uuid"-->
 
   </div>
 </template>
@@ -28,9 +28,9 @@ export default {
   },
   methods: {
     itemclick: function (event) {
-      // this.isSelected = true;
+      this.isSelected = true;
       const path = "/" + this.$props.category + "/" + this.$props.news.uuid;
-      this.$emit('itemclick', path);
+      this.$emit('itemclick', path, this);
     },
     dragStart: function (evn) {
       this.$emit("dragStart", this)
@@ -47,10 +47,8 @@ export default {
       if (this.counter === 0) {
         this.isOvered = false;
       }
-      // console.log("Leaving")
     },
     dragDrop: function (evt) {
-      //console.log(this.news);
       this.counter = 0;
       this.isOvered = false;
       this.$emit("dragDrop", this)
@@ -69,14 +67,20 @@ export default {
   user-select: none;
 }
 
+.itemS {
+  color: blue;
+  font-weight: bold;
+}
+
 .row:hover {
   /*text-decoration: underline;*/
   background-color: whitesmoke;
 }
 
 .overed {
-  background-color: deeppink;
+  background-color: burlywood;
 }
+
 .leaved {
   background-color: white;
 }
@@ -90,11 +94,6 @@ export default {
   margin: 5px;
   padding: 5px;
 }
-
-.selected {
-background-color: aqua;
-}
-
 
 
 </style>

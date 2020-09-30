@@ -18,8 +18,13 @@ export default {
   components: {Category},
   props: ['tree'],
   methods: {
-    itemclick: function (path) {
+    itemclick: function (path, contex) {
       this.$emit("itemclick", path);
+      // console.log(contex);
+      let children = this.$children;
+      children.forEach(function (cat, i, children) {
+        cat.unselectAll(contex);
+      })
     }
   }
 }
