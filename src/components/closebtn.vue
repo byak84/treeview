@@ -1,5 +1,5 @@
 <template>
-  <div class="cl-btn-7"></div>
+  <div class="cl-btn-7" v-on:click="$emit('deleteClick')"></div>
 </template>
 
 <script>
@@ -17,6 +17,8 @@ export default {
   z-index: 1;
   margin: 20px auto;
   cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
 .cl-btn-7:before {
   content: '+';

@@ -7,18 +7,26 @@
        v-on:drop="dragDrop"
        v-bind:class="{overed: isOvered, leaved: !isOvered}"
 
+
   >
-
-    <li v-bind:class="{item: !isSelected, itemS: isSelected}">{{ news.name }}</li>
-    <closebtn />
-<!--    v-bind:data-category="category"-->
-<!--    v-bind:data-uuid="news.uuid"-->
-
+    <table>
+      <tr>
+        <td>
+          <closebtn
+              v-on:deleteClick="deleteItem"
+          />
+        </td>
+        <td>
+          <li v-bind:class="{item: !isSelected, itemS: isSelected}">{{ news.name }}</li>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
 import Closebtn from "@/components/closebtn";
+
 export default {
   components: {Closebtn},
   props: ['news', 'category'],
@@ -55,8 +63,10 @@ export default {
       this.counter = 0;
       this.isOvered = false;
       this.$emit("dragDrop", this.$props.news.uuid)
+    },
+    deleteItem: function () {
+      this.$emit('deleteItem', this.$props.news.uuid, this.$props.category)
     }
-
 
   }
 }

@@ -12,7 +12,8 @@
           v-on:itemclick="itemclick"
           v-on:dragStart="dragStart"
           v-on:dragDrop="dragDrop"
-      />
+          v-on:deleteItem="deleteItem"
+      />\
     </ul>
   </div>
 </template>
@@ -32,7 +33,6 @@ export default {
   },
   methods: {
     unselectAll: function (contex) {
-      // console.log(this);
       let children = this.$children;
       children.forEach(function (item, i, children) {
         if (item != contex) {
@@ -42,10 +42,6 @@ export default {
     },
     itemclick: function (path, contex) {
       this.$emit("itemclick", path, contex);
-      // let children = this.$children;
-      // children.forEach(function (item, i, children) {
-      //   console.log(item.$props.news.uuid);
-      // })
     },
     dragStart: function (uuid) {
       this.startUUID = uuid;
@@ -67,13 +63,16 @@ export default {
         // this.startItem.$props.news.text = tmpD.text;
 
       // }
-    }
+    },
+    deleteItem: function (uuid, cat) {
+      this.$emit("deleteItem", uuid, cat);
+    },
   }
 }
 
 </script>
 
-<style scoped>
+<style \scoped>
 
 ul {
   list-style-type: none;

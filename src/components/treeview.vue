@@ -6,6 +6,7 @@
               v-bind:title="cat"
               v-bind:newsArray="newsArray"
               v-on:itemclick="itemclick"
+              v-on:deleteItem="deleteItem"
     />
   </ul>
 </div>
@@ -20,11 +21,13 @@ export default {
   methods: {
     itemclick: function (path, contex) {
       this.$emit("itemclick", path);
-      // console.log(contex);
       let children = this.$children;
       children.forEach(function (cat, i, children) {
         cat.unselectAll(contex);
       })
+    },
+    deleteItem: function (uuid, cat) {
+      this.$emit("deleteItem", uuid, cat)
     }
   }
 }

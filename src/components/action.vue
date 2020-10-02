@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <form @submit.prevent="onSubmit">
-      <label for="link">Адрес:</label>
+      <label for="link">Адрес статьи: </label>
       <input class="editlink" type="text" v-model="link" id="link"/>
       <button type="submit">Добавить</button>
     </form>
@@ -31,7 +31,7 @@ export default {
 
 .header {
   /*width: 100%;*/
-  background-color: cornflowerblue;
+  /*background-color: cornflowerblue;*/
   margin: 10px;
   padding: 0px;
 }

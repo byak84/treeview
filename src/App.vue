@@ -5,6 +5,7 @@
 
     <treeview v-bind:tree="this['myTree']"
               v-on:itemclick="itemclick"
+              v-on:deleteItem="deleteItem"
     />
 
     <textview v-bind:text="this['text']"/>
@@ -63,6 +64,16 @@ export default {
       }).catch(err => {
         // console.log(err)
       })
+    },
+    deleteItem: function (uuid, cat) {
+      console.log("deleteItem: ", uuid);
+      // let newsArr = this.myTree[cat];
+
+      this.myTree[cat] = this.myTree[cat].filter(function (t) {
+        return t.uuid != uuid;
+      })
+      console.log(this.myTree);
+       // newsArr=[];
     },
 
   },
