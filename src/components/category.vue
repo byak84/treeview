@@ -13,7 +13,7 @@
           v-on:dragStart="dragStart"
           v-on:dragDrop="dragDrop"
           v-on:deleteItem="deleteItem"
-      />\
+      />
     </ul>
   </div>
 </template>

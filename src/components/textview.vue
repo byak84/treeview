@@ -1,7 +1,6 @@
 <template>
   <div class="textview">
-<!--    <p id="text">{{text}}</p>-->
-    <textarea>{{text}}</textarea>
+    <textarea>{{ text }}</textarea>
   </div>
 
 </template>
@@ -10,6 +9,11 @@
 <script>
 export default {
   props: ['text'],
+  data: () => {
+    return {
+      checked: false,
+    }
+  }
 
 }
 
@@ -24,10 +28,13 @@ export default {
   /*background: antiquewhite;*/
   float: left;
 }
+
 textarea {
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 99%;
   font-family: Verdana, Tahoma, Arial;
+  border: 3px solid #888;
+  resize: none;
 }
 
 </style>

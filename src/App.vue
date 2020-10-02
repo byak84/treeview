@@ -67,13 +67,21 @@ export default {
     },
     deleteItem: function (uuid, cat) {
       console.log("deleteItem: ", uuid);
-      // let newsArr = this.myTree[cat];
 
-      this.myTree[cat] = this.myTree[cat].filter(function (t) {
-        return t.uuid != uuid;
-      })
+      this.myTree[cat] = this.myTree[cat]
+          .filter(t => {
+            return t.uuid != uuid;
+          })
+      if (this.myTree[cat].length === 0) {
+        this.myTree[cat].push({
+          "name": "<Категория пуста>",
+          "order": 0,
+          "text": "",
+          "uuid": "0"
+        });
+      }
+
       console.log(this.myTree);
-       // newsArr=[];
     },
 
   },

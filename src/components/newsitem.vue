@@ -5,8 +5,7 @@
        v-on:dragenter="dragEnter"
        v-on:dragleave="dragLeave"
        v-on:drop="dragDrop"
-       v-bind:class="{overed: isOvered, leaved: !isOvered}"
-
+       v-bind:class="{overed: isOvered, leaved: !isOvered, empty: news.uuid === '0'}"
 
   >
     <table>
@@ -83,6 +82,10 @@ export default {
 .itemS {
   color: blue;
   font-weight: bold;
+}
+
+.empty {
+  font-style: italic;
 }
 
 .row:hover {
