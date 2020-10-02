@@ -5,9 +5,9 @@
     </li>
     <ul v-bind:class="{nested: nes}">
       <newsitem
-          v-for="news of newsArray"
+          v-for="(news,index) of newsArray"
           v-bind:news="news"
-          v-bind:key="news.uuid"
+          v-bind:key="index"
           v-bind:category="title"
           v-on:itemclick="itemclick"
           v-on:dragStart="dragStart"
@@ -27,7 +27,7 @@ export default {
   data: () => {
     return ({
       nes: false,
-      startItem: null
+      startUUID: null
     })
   },
   methods: {
@@ -42,33 +42,17 @@ export default {
     },
     itemclick: function (path, contex) {
       this.$emit("itemclick", path, contex);
-      let children = this.$children;
-      children.forEach(function (item, i, children) {
-        console.log(item.$props.news.uuid);
-      })
+      // let children = this.$children;
+      // children.forEach(function (item, i, children) {
+      //   console.log(item.$props.news.uuid);
+      // })
     },
-    dragStart: function (contex) {
-      this.startItem = contex;
+    dragStart: function (uuid) {
+      this.startUUID = uuid;
+      console.log("start: ",uuid);
     },
-    dragDrop: function (contex) {
-      let dropIndex;
-      let startIndex;
-      if (this.startItem != null) {
-
-        let items = this.$children;
-        for (let i = 0; i < items.length; i++) {
-          if (items[i] === contex) {
-            console.log(i);
-            dropIndex = i;
-          }
-          if (items[i] === this.startItem) {
-            console.log(i);
-            startIndex = i;
-          }
-        }
-
-       items[dropIndex].$props.news.name = items[startIndex].$props.news.name;
-
+    dragDrop: function (uuid) {
+      console.log("drop:  ", uuid);
 
         // const tmpD = Object.assign({}, contex.$props.news);
         // const tmpS = Object.assign({}, this.startItem.$props.news);
@@ -82,7 +66,7 @@ export default {
         // this.startItem.$props.news.order = tmpD.order;
         // this.startItem.$props.news.text = tmpD.text;
 
-      }
+      // }
     }
   }
 }

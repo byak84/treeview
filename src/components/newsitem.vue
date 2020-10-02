@@ -10,6 +10,7 @@
   >
 
     <li v-bind:class="{item: !isSelected, itemS: isSelected}">{{ news.name }}</li>
+    <closebtn />
 <!--    v-bind:data-category="category"-->
 <!--    v-bind:data-uuid="news.uuid"-->
 
@@ -17,7 +18,9 @@
 </template>
 
 <script>
+import Closebtn from "@/components/closebtn";
 export default {
+  components: {Closebtn},
   props: ['news', 'category'],
   data: () => {
     return {
@@ -33,7 +36,7 @@ export default {
       this.$emit('itemclick', path, this);
     },
     dragStart: function (evn) {
-      this.$emit("dragStart", this)
+      this.$emit("dragStart", this.$props.news.uuid);
     },
     dragOver: function (evn) {
       evn.preventDefault();
@@ -51,7 +54,7 @@ export default {
     dragDrop: function (evt) {
       this.counter = 0;
       this.isOvered = false;
-      this.$emit("dragDrop", this)
+      this.$emit("dragDrop", this.$props.news.uuid)
     }
 
 
