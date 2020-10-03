@@ -1,12 +1,27 @@
 [
   {
-    "name": "Politic",
     "id": 1,
+    "name": "Politic",
+    "order": 1,
     "nodes": []
   },
   {
+    "id": 2,
     "name": "Economy",
-    "id": 1,
-    "nodes": []
+    "order": 2,
+    "nodes": [
+      {
+        "id": 3,
+        "name": "sub-Economy 1",
+        "order": 1,
+        "nodes": []
+      },
+      {
+        "id": 3,
+        "name": "sub-Economy 2",
+        "order": 1,
+        "nodes": []
+      }
+    ]
   }
 ]
