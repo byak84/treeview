@@ -1,18 +1,21 @@
 <template>
-<div class="treeview">
-
-</div>
+  <div class="treeview">
+    <ul class="tree-list">
+      <node v-for="node in nodes"
+            v-bind:node="node"
+            v-bind:root="true"
+      />
+    </ul>
+  </div>
 </template>
 
 <script>
-import Category from "@/components/category";
+import node from "@/components/node";
 
 export default {
-  components: {Category},
-  props: ['tree'],
-  methods: {
-
-  }
+  components: {node},
+  props: ['nodes'],
+  methods: {}
 }
 </script>
 
@@ -22,9 +25,15 @@ export default {
   padding: 0px;
   width: 30%;
   height: 100%;
-  background-color: #aaaaaa;
+  background-color: #dddddd;
   float: left;
 }
 
+.tree-list {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  list-style-type: none;
+}
 
 </style>

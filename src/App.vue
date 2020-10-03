@@ -1,11 +1,9 @@
 <template>
   <div id="app" class="app">
-    <action v-on:add_news="add_news"
-    />
+<!--    <action v-on:add_news="add_news"-->
+<!--    />-->
 
-    <treeview v-bind:tree="treeJSON"
-              v-on:itemclick="itemclick"
-              v-on:deleteItem="deleteItem"
+    <treeview v-bind:nodes="treeJSON"
     />
 
 
