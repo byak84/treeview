@@ -16,6 +16,7 @@
 import Treeview from "@/components/treeview"
 import Textview from "@/components/textview"
 import Action from "@/components/action"
+import category from "@/components/category";
 
 export default {
   name: 'App',
@@ -33,7 +34,6 @@ export default {
   },
   methods: {
     itemclick: function (path) {
-      // console.log(path);
       this.currentCategory = path.substr(1).split("/", 1).toString();
 
       fetch(this.apiURL + path)
@@ -72,31 +72,42 @@ export default {
           .filter(t => {
             return t.uuid != uuid;
           })
-      if (this.myTree[cat].length === 0) {
-        this.myTree[cat].push({
-          "name": "<Категория пуста>",
-          "order": 0,
-          "text": "",
-          "uuid": "0"
-        });
-      }
-
-      console.log(this.myTree);
+      // if (this.myTree[cat].length === 0) {
+      //   this.myTree[cat].push({
+      //     "name": "Категория пуста",
+      //     "order": 0,
+      //     "text": "",
+      //     "uuid": "0"
+      //   });
+      // }
+      // console.log(this.myTree);
     },
+    loadTree: function () {
+      fetch(this.apiURL)
+          .then(response => {
+            response.json()
+                .then(data => {
+                  this.myTree = data;
+                })
+          })
+          .catch(err => {
+            alert(err);
+          })
+    },
+    // addEmpty:
 
   },
-  mounted() {
-    fetch(this.apiURL)
-        .then(response => {
-          response.json()
-              .then(data => {
-                this.myTree = data;
-              })
-        })
-        .catch(err => {
-          alert(err);
-        })
-
+  watch: {
+    // myTree: function (tree) {
+    //   console.log("Сработка watch", tree);
+    //   for (let category in tree) {
+    //     console.log(category);
+    //   }
+    // }
+  },
+  computed: {},
+  created() {
+    this.loadTree();
   }
 }
 

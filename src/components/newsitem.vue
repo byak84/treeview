@@ -1,5 +1,6 @@
 <template>
-  <div class="row" draggable="true" @click="itemclick"
+  <div draggable="false">
+  <div class="row" v-bind:draggable="draged" v-on:click="itemclick"
        v-on:dragstart="dragStart"
        v-on:dragover="dragOver"
        v-on:dragenter="dragEnter"
@@ -13,6 +14,7 @@
         <td>
           <closebtn
               v-on:deleteClick="deleteItem"
+              v-if="news.uuid != 0"
           />
         </td>
         <td>
@@ -21,6 +23,7 @@
       </tr>
     </table>
   </div>
+  </div>
 </template>
 
 <script>
@@ -28,7 +31,7 @@ import Closebtn from "@/components/closebtn";
 
 export default {
   components: {Closebtn},
-  props: ['news', 'category'],
+  props: ['news', 'category','draged'],
   data: () => {
     return {
       isOvered: false,
