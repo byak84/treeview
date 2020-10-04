@@ -3,6 +3,7 @@
     <ul class="tree-list">
       <node v-for="node in nodes"
             v-bind:node="node"
+            v-bind:key="node.id"
             v-bind:root="true"
       />
     </ul>

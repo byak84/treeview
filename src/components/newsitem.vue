@@ -1,5 +1,4 @@
 <template>
-  <div draggable="false">
   <div class="row" v-bind:draggable="draged" v-on:click="itemclick"
        v-on:dragstart="dragStart"
        v-on:dragover="dragOver"
@@ -23,7 +22,6 @@
       </tr>
     </table>
   </div>
-  </div>
 </template>
 
 <script>
@@ -31,7 +29,7 @@ import Closebtn from "@/components/closebtn";
 
 export default {
   components: {Closebtn},
-  props: ['news', 'category','draged'],
+  props: ['news', 'category', 'draged'],
   data: () => {
     return {
       isOvered: false,
