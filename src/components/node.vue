@@ -13,10 +13,10 @@
       <ul class="sub-tree" v-bind:class="{nested: !isNested}">
 
         <div v-for="node in node.nodes" draggable="true" class="subnode"
-             v-bind:key="node.id"
-        >
+             v-bind:key="node.id">
+
           <table border="0">
-            <tr style="min-height: 70px">
+            <tr>
               <td width="100%">
                 <node
                     v-bind:node="node"
@@ -62,21 +62,20 @@ export default {
   cursor: pointer;
   margin: 0px;
   padding: 0px;
-  /*vertical-align: middle;*/
-  /*background-color: aqua;*/
-  /*border-style: solid;*/
   position: relative;
   height: 100%;
+  margin-bottom: 10px;
 }
 
 .root_title {
   font-family: Verdana Tahoma Arial;
   font-size: 18px;
   background-color: dodgerblue;
-  min-height: 40px;
+  color: #ffffff;
+  /*min-height: 40px;*/
   text-align: left;
-  margin: 0px;
-  padding: 0px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .root_body {
@@ -95,10 +94,14 @@ export default {
 }
 
 .subnode {
+  margin-right: 50px;
+  padding: 5px;
+  width: 100%;
 }
 
 .subnode:hover {
-  background-color: #337AB7;
+  background-color: #888888;
+
 }
 
 li {
@@ -109,8 +112,8 @@ li {
 .sub-tree {
   user-select: none;
   list-style-type: none;
-  /*padding: 0;*/
-  /*margin: 0;*/
+  padding: 0px;
+  margin-left: 50px;
 }
 
 .nested {

@@ -1,9 +1,14 @@
 <template>
-  <div class="cl-btn-7" v-on:click="$emit('deleteClick')"></div>
+  <div class="cl-btn-7" v-on:click="closeClick"></div>
 </template>
 
 <script>
 export default {
+  methods: {
+    closeClick: function (){
+      console.log('close');
+    }
+  }
 
 }
 </script>

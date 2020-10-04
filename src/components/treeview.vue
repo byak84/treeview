@@ -24,7 +24,7 @@ export default {
 
 .treeview {
   padding: 0px;
-  width: 30%;
+  width: 20%;
   height: 100%;
   background-color: #dddddd;
   float: left;

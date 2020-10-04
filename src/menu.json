@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Politic",
+    "name": "Политика",
     "order": 1,
     "nodes": [
       {
@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "name": "Economy",
+    "name": "Экономика",
     "order": 2,
     "nodes": [
       {
