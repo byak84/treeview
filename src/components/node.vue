@@ -1,32 +1,49 @@
 <template>
   <div class="node" draggable="false">
 
+    <!-- TITLE -->
     <div v-bind:class="{root_title: root, sub_item: !root}">
       <li v-on:click="isNested = !isNested">{{ node.name }}</li>
     </div>
+    <!-- TITLE -->
 
-    <ul v-if="node.nodes" class="sub-tree" v-bind:class="{nested: !isNested}">
+    <!-- IF-->
+    <div v-if="node.nodes.length !== 0" v-bind:class="{root_body: root}">
 
-      <div v-bind:class="{root_body: root}"
-           v-for="node in node.nodes" draggable="true">
+      <ul class="sub-tree" v-bind:class="{nested: !isNested}">
 
-        <node
-            v-bind:node="node"
-            v-bind:key="node.id"
-            v-bind:root="false"
-        />
+        <div v-for="node in node.nodes" draggable="true" class="subnode"
+             v-bind:key="node.id"
+        >
+          <table border="0">
+            <tr style="min-height: 70px">
+              <td width="100%">
+                <node
+                    v-bind:node="node"
+                    v-bind:root="false"
+                />
+              </td>
+              <td>
+                <closebtn />
+              </td>
+            </tr>
+          </table>
+        </div>
 
-      </div>
 
-    </ul>
+      </ul>
+    </div>
+    <!-- IF -->
 
   </div>
 
 </template>
 
 <script>
+import closebtn from "@/components/closebtn";
 export default {
   name: 'node',
+  components: {closebtn},
   props: ['node', 'root'],
   data: () => {
     return {
@@ -46,38 +63,42 @@ export default {
   margin: 0px;
   padding: 0px;
   /*vertical-align: middle;*/
-  background-color: aqua;
+  /*background-color: aqua;*/
   /*border-style: solid;*/
   position: relative;
+  height: 100%;
 }
 
 .root_title {
   font-family: Verdana Tahoma Arial;
   font-size: 18px;
   background-color: dodgerblue;
-  /*min-height: 40px;*/
+  min-height: 40px;
   text-align: left;
   margin: 0px;
   padding: 0px;
-  /*border-style: dashed;*/
-  top: 50%;
 }
 
 .root_body {
   /*background-color: white;*/
-  border-style: solid;
+  /*border-style: solid;*/
 }
 
 .sub_item {
   /*width: 100%;*/
-  min-height: 40px;
-  text-align: left;
   vertical-align: center;
   padding-left: 10px;
+  height: 100%;
+  /*border-style: dashed;*/
+  margin: 0px;
+  padding: 0px;
 }
 
-.sub_item:hover {
-  background-color: #eeeeee;
+.subnode {
+}
+
+.subnode:hover {
+  background-color: #337AB7;
 }
 
 li {
