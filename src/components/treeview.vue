@@ -5,6 +5,7 @@
             v-bind:node="node"
             v-bind:key="node.id"
             v-bind:root="true"
+            v-on:onDrop="onDrop"
       />
     </ul>
   </div>
@@ -16,7 +17,17 @@ import node from "@/components/node";
 export default {
   components: {node},
   props: ['nodes'],
-  methods: {}
+  data: () => {
+    return {
+      startDrag: 0,
+    }
+  },
+  methods: {
+    onDrop: function (id) {
+      console.log('Level 1 StartID: ',this.$root.startID);
+      console.log('Level 1 Drop: ',id);
+    }
+  },
 }
 </script>
 
@@ -24,9 +35,9 @@ export default {
 
 .treeview {
   padding: 0px;
-  width: 20%;
+  width: 25%;
   height: 100%;
-  background-color: #dddddd;
+  background-color: #eeeeee;
   float: left;
 }
 

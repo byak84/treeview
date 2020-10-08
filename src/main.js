@@ -5,4 +5,7 @@ import App from './App.vue'
 
 new Vue({
   render: h => h(App),
+  data: {
+    startID: 0,
+  }
 }).$mount('#app')

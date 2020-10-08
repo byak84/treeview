@@ -5,15 +5,24 @@
     <table border="0" width="100%">
       <tr>
         <td width="100%">
-          <div v-bind:class="{root_title: root, sub_item: !root}">
-            <li v-on:click="isNested = !isNested">{{ node.name }}</li>
+          <div v-if="!root" v-bind:class="{root_title: root, sub_item: !root}" draggable="true"
+               v-on:dragstart="dragStart"
+               v-on:dragover="dragOver"
+               v-on:drop="dragDrop"
+          >
+            <li v-on:click="isNested = !isNested" v-bind:class="{selected: isSelected}">{{ node.title }}</li>
           </div>
+          <div v-else v-bind:class="{root_title: root, sub_item: !root}" v-on:dragstart="dragStart" draggable="false"
+               v-on:dragover="dragOver"
+               v-on:drop="dragDrop"
+          >
+            <li v-on:click="isNested = !isNested" v-bind:class="{selected: isSelected}">{{ node.title }}</li>
+          </div>
+
         </td>
         <td v-if="closeable">
           <div>
-            <closebtn
-                v-on:closeClick="deleteItem"
-            />
+            <closebtn v-on:deleteClick="deleteItem"/>
           </div>
         </td>
       </tr>
@@ -25,28 +34,17 @@
 
       <ul class="sub-tree" v-bind:class="{nested: !isNested, visible: isNested}">
 
-        <div v-for="node in node.nodes" draggable="true" class="subnode"
+        <div v-for="node in node.nodes" draggable="false" class="subnode"
              v-bind:key="node.id"
         >
-
-          <!--          <table border="1">-->
-          <!--            <tr>-->
-          <!--              <td width="100%">-->
           <node
               v-bind:node="node"
               v-bind:root="false"
               v-bind:closeable="true"
-          />
-          <!--              </td>-->
-          <!--              <td>-->
-          <!--                <closebtn-->
-          <!--                    v-on:closeClick="deleteItem"-->
-          <!--                />-->
-          <!--              </td>-->
-          <!--            </tr>-->
-          <!--          </table>-->
-        </div>
+              v-on:onStart="$emit('onStart', node.id)"
 
+          />
+        </div>
 
       </ul>
     </div>
@@ -69,11 +67,29 @@ export default {
       isSelected: false,
       isNested: true,
       counter: 0,
+      startDrag: 0,
     }
   },
   methods: {
-    deleteItem: function (cxt) {
-      console.log(this.$props.node.id);
+    deleteItem: function () {
+      const id = this.$props.node.id;
+      this.$parent.node.nodes = this.$parent.node.nodes.filter(function (node) {
+        return node.id !== id;
+      })
+    },
+    dragStart: function () {
+      this.$root.startID = this.$props.node.id;
+      this.$root.parent_startID = this.$parent.$props.node.id;
+    },
+    dragOver: function (evn) {
+      evn.preventDefault();
+      console.log("over: ",this.$props.node.id);
+    },
+    dragDrop: function () {
+      console.log("start: ", this.$root.startID);
+      console.log("start parent: ", this.$root.parent_startID);
+      console.log("drop: ", this.$props.node.id);
+      this.$emit('onDrop', this.$props.node.id);
     }
   }
 }
@@ -87,7 +103,6 @@ export default {
   padding: 0px;
   position: relative;
   height: 100%;
-  /*margin-bottom: 10px;*/
 }
 
 
@@ -98,7 +113,7 @@ export default {
   color: #ffffff;
   text-align: left;
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 10px;
 }
 
@@ -120,12 +135,13 @@ export default {
 
 .subnode {
   padding: 0px;
-  width: 100%;
+  margin: 10px;
+  width: 95%;
   background-color: white;
 }
 
 .subnode:hover {
-  background-color: #888888;
+  background-color: #aaaaaa;
 
 }
 
@@ -144,11 +160,14 @@ li {
 .visible {
   transition: all 2s linear;
   display: block;
-  color: red;
 }
 
 .nested {
   display: none;
   opacity: 0;
+}
+
+.selected {
+  font-weight: bold;
 }
 </style>

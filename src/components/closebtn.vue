@@ -6,7 +6,7 @@
 export default {
   methods: {
     closeClick: function (){
-      this.$emit("closeClick");
+      this.$emit("deleteClick");
     }
   }
 
