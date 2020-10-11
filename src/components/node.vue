@@ -83,7 +83,7 @@ export default {
     },
     dragOver: function (evn) {
       evn.preventDefault();
-      console.log("over: ",this.$props.node.id);
+      // console.log("over: ",this.$props.node.id);
     },
     dragDrop: function () {
       console.log("start: ", this.$root.startID);
