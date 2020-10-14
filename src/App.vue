@@ -33,9 +33,7 @@ export default {
   },
   methods: {
     itemclick: function (path) {
-      // console.log(path);
       this.currentCategory = path.substr(1).split("/", 1).toString();
-
       fetch(this.apiURL + path)
           .then(response => {
             response.json()
@@ -60,7 +58,16 @@ export default {
         },
         body: JSON.stringify(post_options)
       }).then(res => {
-        // console.log(res)
+        fetch(this.apiURL)
+            .then(response => {
+              response.json()
+                  .then(data => {
+                    this.myTree = data;
+                  })
+            })
+            .catch(err => {
+              alert(err);
+            })
       }).catch(err => {
         // console.log(err)
       })
@@ -72,20 +79,10 @@ export default {
           .filter(t => {
             return t.uuid != uuid;
           })
-      if (this.myTree[cat].length === 0) {
-        this.myTree[cat].push({
-          "name": "<Категория пуста>",
-          "order": 0,
-          "text": "",
-          "uuid": "0"
-        });
-      }
-
       console.log(this.myTree);
     },
-
   },
-  mounted() {
+  loadTree: function () {
     fetch(this.apiURL)
         .then(response => {
           response.json()
@@ -96,7 +93,9 @@ export default {
         .catch(err => {
           alert(err);
         })
-
+  },
+  mounted() {
+    this.loadTree();
   }
 }
 
