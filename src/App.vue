@@ -94,9 +94,17 @@ export default {
           alert(err);
         })
   },
-  mounted() {
-    this.loadTree();
-  }
+  created() {
+    fetch(this.apiURL)
+        .then(response => {
+          response.json()
+              .then(data => {
+                this.myTree = data;
+              })
+        })
+        .catch(err => {
+          alert(err);
+        })  }
 }
 
 </script>
